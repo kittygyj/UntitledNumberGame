@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DragController : MonoBehaviour
 {
+
     private bool isDragActive = false;
     private Vector2 screenPosition;
     private Vector3 worldPosition;
@@ -74,14 +75,19 @@ public class DragController : MonoBehaviour
     void Drag()
     {
         lastDragged.transform.position = new Vector2(worldPosition.x,worldPosition.y);
+        lastDragged.IsDragging = true;
     }
     void Drop()
     {
+        lastDragged.Drop();
+        lastDragged.IsDragging=false;
         isDragActive = false;
     }
     void InitDrag()
     {
         isDragActive = true;
     }
+
+
     
 }
