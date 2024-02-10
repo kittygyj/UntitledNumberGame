@@ -45,4 +45,9 @@ public class Draggable : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other) 
     {
     }
+
+    public void changenumber(int n)
+    {
+        number=n;
+    }
 }

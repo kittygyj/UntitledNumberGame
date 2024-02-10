@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 394826892231154204}
   - component: {fileID: 336421886352411962}
   - component: {fileID: 449821304464640438}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttributeValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 7649075212730337490}
   - component: {fileID: 1635126601442189789}
   - component: {fileID: 5508183222842859825}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttributeFieldCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value: {fileID: 449821304464640438}
+  Attribute: {fileID: 0}
   value: 0
 --- !u!1 &4389313477499500819
 GameObject:
@@ -275,7 +276,7 @@ GameObject:
   - component: {fileID: 7021640096953568321}
   - component: {fileID: 3809639305513849066}
   - component: {fileID: 8762008392773902275}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttributeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6759490924661797613}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Attribute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
