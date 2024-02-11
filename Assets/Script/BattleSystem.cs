@@ -124,12 +124,14 @@ public class BattleSystem : MonoBehaviour
     {
         if(state == BattleState.WON)
         {
+            FindFirstObjectByType<AudioManager>().Play("Win");
             dialogueText.text = "you won!";
             state = BattleState.Start;
             StartCoroutine(SetupBattle());
         }
         else if (state == BattleState.LOST)
         {
+            FindFirstObjectByType<AudioManager>().Play("Lose");
             dialogueText.text = "you lose!";
             //TODO:Retry Menu
         }
