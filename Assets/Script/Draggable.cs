@@ -16,6 +16,7 @@ public class Draggable : MonoBehaviour
     Collider2D currentCollidingObject;
 
     void Start() {
+        gameObject.GetComponent<Rigidbody2D>().velocity=new Vector2(0,5);
         //NumberText = gameObject.GetComponentInParent<TMP_Text>();
     }
     void Update()

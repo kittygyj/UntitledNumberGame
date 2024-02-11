@@ -123,8 +123,8 @@ public class AttributeTrigger : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Draggable>()!=null)
         {
-            Attribute.GetComponent<TMP_Text>().color = Color.white;
-            Value.GetComponent<TMP_Text>().color = Color.white;
+            Attribute.GetComponent<TMP_Text>().color = Color.black;
+            Value.GetComponent<TMP_Text>().color = Color.black;
         }
     }
 

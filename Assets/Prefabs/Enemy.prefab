@@ -50,6 +50,7 @@ MonoBehaviour:
   damage: 5
   maxHP: 30
   currentHP: 30
+  defense: 0
   numberprefab: {fileID: 4194889418127137402, guid: 6b423a50d0879f14d806d884a1189b6f, type: 3}
 --- !u!1 &7412112136980109047
 GameObject:
@@ -78,7 +79,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.03, y: 0.47, z: -0.03861073}
-  m_LocalScale: {x: 0.35, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1380496847022606873}
@@ -124,8 +125,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 9aab35e971be5324998e9848c5c85205, type: 3}
+  m_Color: {r: 0.8962264, g: 0.08173125, b: 0.08173125, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -31,20 +31,30 @@ public class BattleSystem : MonoBehaviour
     public GameObject EnemyATKTrigger;
     public GameObject EnemyDEFTrigger;
 
+    public GameObject playerGO;
+    public GameObject enemyGO ;
+
 
     void Start()
     {
-        //FindFirstObjectByType<AudioManager>().Play("EnemyAttack3");
         state = BattleState.Start;
         StartCoroutine(SetupBattle());
     }
 
     IEnumerator SetupBattle()
     {
-        GameObject playerGO = Instantiate(playerPrefab,playerBattleStation);
-        playerUnit = playerGO.GetComponent<Unit>();
-        GameObject enemyGO = Instantiate(enemyPrefab,enemyBattleStation);
-        enemyUnit = enemyGO.GetComponent<Unit>();
+        if(playerGO==null)
+        {
+            playerGO = Instantiate(playerPrefab,playerBattleStation);
+            playerUnit = playerGO.GetComponent<Unit>();  
+        }
+        if(enemyGO==null)
+        {
+            Debug.Log("create");
+            enemyGO = Instantiate(enemyPrefab,enemyBattleStation);
+            enemyUnit = enemyGO.GetComponent<Unit>();            
+        }
+
         InitializeAttributes();
 
         dialogueText.text = "Enemy Draw His Sword!";
@@ -66,6 +76,8 @@ public class BattleSystem : MonoBehaviour
         if(isDead)
         {
             state = BattleState.WON;
+            Destroy(enemyGO);
+            enemyGO=null;
             EndBattle();
         }
         else
@@ -78,6 +90,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         dialogueText.text = "Enemy Attack!";
+        FindFirstObjectByType<AudioManager>().Play("EnemyAttack3");
         yield return new WaitForSeconds(1f);
         bool isDead = playerUnit.takeDamage(enemyUnit.damage);
         // Damage enemy
@@ -87,6 +100,8 @@ public class BattleSystem : MonoBehaviour
         if(isDead)
         {
             state = BattleState.LOST;
+            Destroy(playerGO);
+            playerGO=null;
             EndBattle();
         }
         else
@@ -110,10 +125,13 @@ public class BattleSystem : MonoBehaviour
         if(state == BattleState.WON)
         {
             dialogueText.text = "you won!";
+            state = BattleState.Start;
+            StartCoroutine(SetupBattle());
         }
         else if (state == BattleState.LOST)
         {
             dialogueText.text = "you lose!";
+            //TODO:Retry Menu
         }
     }
 
