@@ -73,6 +73,7 @@ public class AttributeTrigger : MonoBehaviour
     {
         Debug.Log(number);
         value+=number;
+        FindFirstObjectByType<AudioManager>().Play("NumberPowerUp");
         if(attributes==Attributes.DEF)
         {
             if(unit !=null)

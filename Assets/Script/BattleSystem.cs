@@ -90,7 +90,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         dialogueText.text = "Enemy Attack!";
-        FindFirstObjectByType<AudioManager>().Play("EnemyAttack3");
+        FindFirstObjectByType<AudioManager>().Play("PlayerAttack");
         yield return new WaitForSeconds(1f);
         bool isDead = playerUnit.takeDamage(enemyUnit.damage);
         // Damage enemy
