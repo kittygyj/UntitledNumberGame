@@ -376,7 +376,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83253926}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -7130,7 +7130,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 5
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7501,8 +7501,8 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 11
     m_Data: {fileID: -1131122851, guid: 39ec73698bd3aa6418d97b3183b1c34d, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1409644779, guid: 39ec73698bd3aa6418d97b3183b1c34d, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 11
     m_Data: {fileID: -899154505, guid: 39ec73698bd3aa6418d97b3183b1c34d, type: 3}
   - m_RefCount: 2
@@ -7511,8 +7511,8 @@ Tilemap:
     m_Data: {fileID: -1776418855, guid: 39ec73698bd3aa6418d97b3183b1c34d, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 996082557, guid: 39ec73698bd3aa6418d97b3183b1c34d, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1409644779, guid: 39ec73698bd3aa6418d97b3183b1c34d, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 786916007, guid: 39ec73698bd3aa6418d97b3183b1c34d, type: 3}
   - m_RefCount: 1
@@ -7657,7 +7657,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985648002}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -8319,7 +8319,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730245628}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
