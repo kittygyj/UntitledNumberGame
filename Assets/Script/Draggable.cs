@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Draggable : MonoBehaviour
@@ -17,7 +16,7 @@ public class Draggable : MonoBehaviour
     Collider2D currentCollidingObject;
 
     void Start() {
-        //gameObject.GetComponent<Rigidbody2D>().velocity=new Vector2(0,5);
+        gameObject.GetComponent<Rigidbody2D>().velocity=new Vector2(0,5);
         //NumberText = gameObject.GetComponentInParent<TMP_Text>();
     }
     void Update()
@@ -26,10 +25,6 @@ public class Draggable : MonoBehaviour
         if(IsDragging)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity=new Vector2(0,0);
-        }
-        if(gameObject.transform.position.y<-20)
-        {
-            Destroy(gameObject);
         }
     }
     public void Drop()

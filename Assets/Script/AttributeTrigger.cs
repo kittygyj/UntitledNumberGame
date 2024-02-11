@@ -71,6 +71,7 @@ public class AttributeTrigger : MonoBehaviour
     }
     public void Updatenumber(int number)
     {
+        Debug.Log(number);
         value+=number;
         if(attributes==Attributes.DEF)
         {
