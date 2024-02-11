@@ -34,6 +34,8 @@ public class BattleSystem : MonoBehaviour
     public GameObject playerGO;
     public GameObject enemyGO ;
 
+    private string[] enemySounds; //set up a list for randomizing 
+
 
     void Start()
     {
