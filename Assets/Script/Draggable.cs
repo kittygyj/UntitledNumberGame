@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
@@ -9,10 +10,17 @@ public class Draggable : MonoBehaviour
     public List<Collider2D> TriggerList = new List<Collider2D>();
 
     [SerializeField] public int number = 2;
+
+    [SerializeField]TMP_Text NumberText;
+
     Collider2D currentCollidingObject;
 
+    void Start() {
+        //NumberText = gameObject.GetComponentInParent<TMP_Text>();
+    }
     void Update()
     {
+        NumberText.text = number.ToString();
         if(IsDragging)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity=new Vector2(0,0);

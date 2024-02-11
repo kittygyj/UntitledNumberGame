@@ -10,6 +10,7 @@ public class Unit : MonoBehaviour
     public int damage;
     public int maxHP;
     public int currentHP;
+    public int defense;
 
     public GameObject numberprefab;
 

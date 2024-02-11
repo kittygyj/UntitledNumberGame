@@ -21,11 +21,20 @@ public class BattleSystem : MonoBehaviour
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
     public TMP_Text dialogueText;//TEST
-    Unit playerUnit;
-    Unit enemyUnit;
+    public Unit playerUnit;
+    public Unit enemyUnit;
+//Custom Attributes
+    public GameObject PlayerHPTrigger;
+    public GameObject PlayerATKTrigger;
+    public GameObject PlayerDEFTrigger;
+    public GameObject EnemyHPTrigger;
+    public GameObject EnemyATKTrigger;
+    public GameObject EnemyDEFTrigger;
+
 
     void Start()
     {
+        //FindFirstObjectByType<AudioManager>().Play("EnemyAttack3");
         state = BattleState.Start;
         StartCoroutine(SetupBattle());
     }
@@ -36,6 +45,7 @@ public class BattleSystem : MonoBehaviour
         playerUnit = playerGO.GetComponent<Unit>();
         GameObject enemyGO = Instantiate(enemyPrefab,enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<Unit>();
+        InitializeAttributes();
 
         dialogueText.text = "Enemy Draw His Sword!";
 
@@ -47,6 +57,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+        FindFirstObjectByType<AudioManager>().Play("EnemyAttack3");
         bool isDead = enemyUnit.takeDamage(playerUnit.damage);
         // Damage enemy
         yield return new WaitForSeconds(2f);
@@ -113,5 +124,15 @@ public class BattleSystem : MonoBehaviour
             return;
         }
         StartCoroutine(PlayerAttack());
+    }
+
+    void InitializeAttributes()
+    {
+        PlayerHPTrigger.GetComponent<AttributeTrigger>().initializeValue(playerUnit.currentHP,playerUnit);
+        PlayerATKTrigger.GetComponent<AttributeTrigger>().initializeValue(playerUnit.damage,playerUnit);
+        PlayerDEFTrigger.GetComponent<AttributeTrigger>().initializeValue(playerUnit.defense,playerUnit);
+        EnemyHPTrigger.GetComponent<AttributeTrigger>().initializeValue(enemyUnit.currentHP,enemyUnit);
+        EnemyATKTrigger.GetComponent<AttributeTrigger>().initializeValue(enemyUnit.damage,enemyUnit);
+        EnemyDEFTrigger.GetComponent<AttributeTrigger>().initializeValue(enemyUnit.defense,enemyUnit);
     }
 }
