@@ -50,7 +50,6 @@ public class BattleSystem : MonoBehaviour
         }
         if(enemyGO==null)
         {
-            Debug.Log("create");
             enemyGO = Instantiate(enemyPrefab,enemyBattleStation);
             enemyUnit = enemyGO.GetComponent<Unit>();            
         }
