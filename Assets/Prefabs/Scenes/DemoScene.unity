@@ -9174,23 +9174,29 @@ MonoBehaviour:
     pitch: 1.07
     loop: 0
     source: {fileID: 0}
-  - name: EnemyAttack2
-    clip: {fileID: 8300000, guid: e0dcc22f4b9265d4295d0e7f14051295, type: 3}
-    volume: 1
-    pitch: 1.04
-    loop: 0
-    source: {fileID: 0}
   - name: EnemyAttack
     clip: {fileID: 8300000, guid: 00ba6678ddaafd74b8b02d250dd27c0f, type: 3}
     volume: 1
-    pitch: 1.02
+    pitch: 1.04
     loop: 0
     source: {fileID: 0}
   - name: BGM
     clip: {fileID: 8300000, guid: 34919657a40895347af0d7af6035fc84, type: 3}
     volume: 1
-    pitch: 1.02
+    pitch: 1.04
     loop: 1
+    source: {fileID: 0}
+  - name: Win
+    clip: {fileID: 8300000, guid: 509bbb1f42b0d8543b95615ea82758b9, type: 3}
+    volume: 1
+    pitch: 1.04
+    loop: 0
+    source: {fileID: 0}
+  - name: Lose
+    clip: {fileID: 8300000, guid: 1c5865fd197f99047ba3b27f924209b6, type: 3}
+    volume: 1
+    pitch: 1.04
+    loop: 0
     source: {fileID: 0}
 --- !u!1 &1238314983
 GameObject:
