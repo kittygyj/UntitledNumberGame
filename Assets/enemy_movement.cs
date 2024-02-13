@@ -46,6 +46,7 @@ public class EnemyMovement : MonoBehaviour
 
         // Play the attack animation
         enemyanimator.SetTrigger("Enemyattack");
+        AudioManager.instance.Play("EnemyAttack");
 
         // Wait for the attack animation to finish
         yield return new WaitForSeconds(enemyattackDuration);

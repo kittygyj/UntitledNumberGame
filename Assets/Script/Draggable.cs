@@ -40,6 +40,7 @@ public class Draggable : MonoBehaviour
             {
                 item.gameObject.GetComponent<AttributeTrigger>().Updatenumber(number);
             }
+            AudioManager.instance.Play("NumberPowerUp");
             Destroy(gameObject);
         }
     }

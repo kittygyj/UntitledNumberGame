@@ -66,7 +66,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
-        FindFirstObjectByType<AudioManager>().Play("EnemyAttack3");
+        //FindFirstObjectByType<AudioManager>().Play("EnemyAttack3");
         bool isDead = enemyUnit.takeDamage(playerUnit.damage);
         // Damage enemy
         yield return new WaitForSeconds(2f);
@@ -89,7 +89,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         dialogueText.text = "Enemy Attack!";
-        FindFirstObjectByType<AudioManager>().Play("EnemyAttack3");
+        //FindFirstObjectByType<AudioManager>().Play("EnemyAttack3");
         yield return new WaitForSeconds(1f);
         bool isDead = playerUnit.takeDamage(enemyUnit.damage);
         // Damage enemy
@@ -123,12 +123,14 @@ public class BattleSystem : MonoBehaviour
     {
         if(state == BattleState.WON)
         {
+            AudioManager.instance.Play("Win");
             dialogueText.text = "you won!";
             state = BattleState.Start;
             StartCoroutine(SetupBattle());
         }
         else if (state == BattleState.LOST)
         {
+            AudioManager.instance.Play("Lose");
             dialogueText.text = "you lose!";
             //TODO:Retry Menu
         }

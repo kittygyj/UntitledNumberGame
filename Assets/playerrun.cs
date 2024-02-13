@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Play the attack animation
         animator.SetTrigger("Attack");
+        AudioManager.instance.Play("PlayerAttack");
 
         // Wait for the attack animation to finish
         yield return new WaitForSeconds(attackDuration);
