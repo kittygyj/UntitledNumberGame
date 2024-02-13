@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         enemystartPosition = transform.position;
-
+        enemyanimator.SetBool("EnemyIsIdle", true); // Ensure the player starts in idle
     }
 
     private void Update()
@@ -31,6 +31,7 @@ public class EnemyMovement : MonoBehaviour
         
         enemyisAttacking = true;
         yield return new WaitForSeconds(3f);
+        enemyanimator.SetBool("EnemyIsIdle", false); // Set the player to non-idle before moving
         // Move forward
         while (Vector3.Distance(transform.position, enemystartPosition + Vector3.left * 10f) > 0.01f)
         {
@@ -49,7 +50,7 @@ public class EnemyMovement : MonoBehaviour
 
         // Wait a bit before starting the next loop to make it clear that the action has finished
         //yield return new WaitForSeconds(1f);
-
+        enemyanimator.SetBool("EnemyIsIdle", true); // Set the player to idle during waiting time
         enemyisAttacking = false;
         
     }

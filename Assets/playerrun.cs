@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.Collections;
+using UnityEngine;
+
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
@@ -14,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         startPosition = transform.position;
+        animator.SetBool("IsIdle", true); // Ensure the player starts in idle
     }
 
     private void Update()
@@ -27,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator PerformMoveAttackLoop()
     {
         isAttacking = true;
+        animator.SetBool("IsIdle", false); // Set the player to non-idle before moving
 
         // Move forward
         while (Vector3.Distance(transform.position, startPosition + Vector3.right * 10f) > 0.01f)
@@ -45,10 +50,8 @@ public class PlayerMovement : MonoBehaviour
         transform.position = startPosition;
 
         // Wait a bit before starting the next loop to make it clear that the action has finished
-        //yield return new WaitForSeconds(1f);
+        animator.SetBool("IsIdle", true); // Set the player to idle during waiting time
         yield return new WaitForSeconds(3f);
         isAttacking = false;
-
-        
     }
 }
