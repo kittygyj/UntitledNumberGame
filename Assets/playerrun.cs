@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 20f;
     public Animator animator;
     public float attackDuration = 1f; // Duration of the attack animation
 
@@ -31,14 +31,19 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator PerformMoveAttackLoop()
     {
         isAttacking = true;
+        yield return new WaitForSeconds(2f);
         animator.SetBool("IsIdle", false); // Set the player to non-idle before moving
+        float startTime = Time.time;
+        Vector3 endPosition = startPosition + Vector3.right * 10f;
 
         // Move forward
-        while (Vector3.Distance(transform.position, startPosition + Vector3.right * 10f) > 0.01f)
+        while (Time.time - startTime < 1f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, startPosition + Vector3.right * 10f, moveSpeed * Time.deltaTime);
+            float t = (Time.time - startTime) / 1f; // This will go from 0 to 1, during the 1 second interval
+            transform.position = Vector3.Lerp(startPosition, endPosition, t);
             yield return null;
         }
+
 
         // Play the attack animation
         animator.SetTrigger("Attack");
@@ -51,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Wait a bit before starting the next loop to make it clear that the action has finished
         animator.SetBool("IsIdle", true); // Set the player to idle during waiting time
-        yield return new WaitForSeconds(3f);
         isAttacking = false;
     }
 }

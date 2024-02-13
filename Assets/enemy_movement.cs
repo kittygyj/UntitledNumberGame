@@ -30,14 +30,19 @@ public class EnemyMovement : MonoBehaviour
     {
         
         enemyisAttacking = true;
-        yield return new WaitForSeconds(3f);
         enemyanimator.SetBool("EnemyIsIdle", false); // Set the player to non-idle before moving
+                                                     // Move forward
+        float startTime = Time.time;
+        Vector3 enemyendPosition = enemystartPosition + Vector3.left * 10f;
+
         // Move forward
-        while (Vector3.Distance(transform.position, enemystartPosition + Vector3.left * 10f) > 0.01f)
+        while (Time.time - startTime < 1f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, enemystartPosition + Vector3.left * 10f, enemymoveSpeed * Time.deltaTime);
+            float t = (Time.time - startTime) / 1f; // This will go from 0 to 1, during the 1 second interval
+            transform.position = Vector3.Lerp(enemystartPosition, enemyendPosition, t);
             yield return null;
         }
+
 
         // Play the attack animation
         enemyanimator.SetTrigger("Enemyattack");
@@ -51,6 +56,7 @@ public class EnemyMovement : MonoBehaviour
         // Wait a bit before starting the next loop to make it clear that the action has finished
         //yield return new WaitForSeconds(1f);
         enemyanimator.SetBool("EnemyIsIdle", true); // Set the player to idle during waiting time
+        yield return new WaitForSeconds(2f);
         enemyisAttacking = false;
         
     }
