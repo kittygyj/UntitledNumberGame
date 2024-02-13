@@ -9183,7 +9183,7 @@ MonoBehaviour:
   - name: BGM
     clip: {fileID: 8300000, guid: 34919657a40895347af0d7af6035fc84, type: 3}
     volume: 1
-    pitch: 1.04
+    pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Win

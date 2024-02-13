@@ -46,6 +46,7 @@ public class DragController : MonoBehaviour
         else if (Input.touchCount>0)
         {
             screenPosition = Input.GetTouch(0).position;
+            AudioManager.instance.Stop("NumberCollect");
         }
         else
         {
@@ -86,6 +87,7 @@ public class DragController : MonoBehaviour
     void InitDrag()
     {
         isDragActive = true;
+        AudioManager.instance.Play("NumberCollect");
     }
 
 
