@@ -10,14 +10,16 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector3 enemystartPosition;
     private bool enemyisAttacking = false;
-
+    private bool canAttack = false; // Flag to control the attack initiation
     private void Start()
     {
         enemystartPosition = transform.position;
+
     }
 
     private void Update()
     {
+        
         if (!enemyisAttacking)
         {
             StartCoroutine(EnemyPerformMoveAttackLoop());
@@ -26,12 +28,13 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator EnemyPerformMoveAttackLoop()
     {
+        
         enemyisAttacking = true;
-
+        yield return new WaitForSeconds(3f);
         // Move forward
-        while (Vector3.Distance(transform.position, enemystartPosition + Vector3.left * 5f) > 0.01f)
+        while (Vector3.Distance(transform.position, enemystartPosition + Vector3.left * 10f) > 0.01f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, enemystartPosition + Vector3.left * 5f, enemymoveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, enemystartPosition + Vector3.left * 10f, enemymoveSpeed * Time.deltaTime);
             yield return null;
         }
 
@@ -48,6 +51,7 @@ public class EnemyMovement : MonoBehaviour
         //yield return new WaitForSeconds(1f);
 
         enemyisAttacking = false;
+        
     }
 }
 

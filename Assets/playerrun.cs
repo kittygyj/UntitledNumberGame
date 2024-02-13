@@ -29,9 +29,9 @@ public class PlayerMovement : MonoBehaviour
         isAttacking = true;
 
         // Move forward
-        while (Vector3.Distance(transform.position, startPosition + Vector3.right * 5f) > 0.01f)
+        while (Vector3.Distance(transform.position, startPosition + Vector3.right * 10f) > 0.01f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, startPosition + Vector3.right * 5f, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, startPosition + Vector3.right * 10f, moveSpeed * Time.deltaTime);
             yield return null;
         }
 
@@ -46,7 +46,9 @@ public class PlayerMovement : MonoBehaviour
 
         // Wait a bit before starting the next loop to make it clear that the action has finished
         //yield return new WaitForSeconds(1f);
-
+        yield return new WaitForSeconds(3f);
         isAttacking = false;
+
+        
     }
 }
