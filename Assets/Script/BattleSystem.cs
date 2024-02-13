@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.PlasticSCM.Editor.WebApi;
 
 public enum BattleState
 {
@@ -17,7 +18,7 @@ public class BattleSystem : MonoBehaviour
 {
     public BattleState state;
     public GameObject playerPrefab;
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
     public TMP_Text dialogueText;//TEST
@@ -33,6 +34,7 @@ public class BattleSystem : MonoBehaviour
 
     public GameObject playerGO;
     public GameObject enemyGO ;
+    public int enemyindex=0;
 
 
     void Start()
@@ -50,8 +52,13 @@ public class BattleSystem : MonoBehaviour
         }
         if(enemyGO==null)
         {
-            enemyGO = Instantiate(enemyPrefab,enemyBattleStation);
-            enemyUnit = enemyGO.GetComponent<Unit>();            
+            enemyGO = Instantiate(enemyPrefabs[enemyindex],enemyBattleStation);
+            enemyUnit = enemyGO.GetComponent<Unit>();    
+            enemyindex++;
+            if(enemyPrefabs.Length-1<=enemyindex)  
+            {
+                enemyindex = enemyPrefabs.Length-1;
+            }
         }
 
         InitializeAttributes();
