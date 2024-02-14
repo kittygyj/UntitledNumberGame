@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Unity.PlasticSCM.Editor.WebApi;
 
 public enum BattleState
 {
@@ -74,9 +73,10 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         //FindFirstObjectByType<AudioManager>().Play("EnemyAttack3");
+        yield return new WaitForSeconds(1f);
         bool isDead = enemyUnit.takeDamage(playerUnit.damage);
         // Damage enemy
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         // Check if enemy is dead
         // Change state based on what happened;
         if(isDead)
